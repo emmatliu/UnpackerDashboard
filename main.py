@@ -78,28 +78,14 @@ def shell_ids(fp):
     return etids, objids
 
 
-def joblog_process():
+def joblog_process(fp):
     """
     Full process for the joblog file.
     :param fp: joblog file filepath
     :return: list of etids and objids in joblog file as well as tuples with their id, start time,
     """
 
-    def read_file(fn):
-        """
-        Just reads the file :)
-        :param fn: filename.  Just the filepath
-        :return: the contents of the file
-        """
-
-        # open the file and read it line by line
-        with open(fn) as f:
-            file_data = f.readlines()
-
-        # return the file contents
-        return file_data
-
-    data = read_file('C:/Users/emmat/dashboard/unpacking-2020-07-21.joblog')
+    data = read_file(fp)
     data.pop(0)
 
     # function uses etid/objid, job start time, job run time, and the current ip to create a tuple
